@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "author": "student",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd",
+      "top": -160,
+      "left": 160,
+      "attrs": {
+        "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sonar",
+      "top": 120,
+      "left": 220,
+      "attrs": {
+        "distance": "200"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz",
+      "top": 40,
+      "left": -140,
+      "attrs": {
+        "volume": "0.2"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "card",
+      "top": 180,
+      "left": -140,
+      "attrs": {
+        "color": "blue",
+        "label": "RFID card"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "lcd:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "lcd:VCC",
+      "esp:VIN",
+      "red",
+      []
+    ],
+    [
+      "lcd:SDA",
+      "esp:D21",
+      "green",
+      []
+    ],
+    [
+      "lcd:SCL",
+      "esp:D22",
+      "blue",
+      []
+    ],
+    [
+      "sonar:VCC",
+      "esp:VIN",
+      "red",
+      []
+    ],
+    [
+      "sonar:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "sonar:TRIG",
+      "esp:D5",
+      "orange",
+      []
+    ],
+    [
+      "sonar:ECHO",
+      "esp:D18",
+      "purple",
+      []
+    ],
+    [
+      "bz:2",
+      "esp:D19",
+      "red",
+      []
+    ],
+    [
+      "bz:1",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "card:1.l",
+      "esp:D4",
+      "blue",
+      []
+    ],
+    [
+      "card:2.l",
+      "esp:GND.2",
+      "black",
+      []
+    ]
+  ]
+}
